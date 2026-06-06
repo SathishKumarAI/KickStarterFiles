@@ -1,0 +1,14 @@
+# Arch builder. archiso/mkarchiso toolchain. Needs --privileged for loop devices.
+# Repo bind-mounted at /work; outputs land in ./output.
+#
+#   docker compose build
+#   docker compose run --rm arch-builder ./scripts/build-arch-usb.sh
+services:
+  arch-builder:
+    build:
+      context: .
+      dockerfile: docker/arch-builder.Dockerfile
+    privileged: true
+    volumes:
+      - .:/work
+    working_dir: /work
