@@ -1,2 +1,20 @@
 # Ignore config.yaml file
 config.yaml
+
+# Build artifacts — ISOs/images are large, never commit
+output/
+downloads/
+packer/packer_cache/
+*.iso
+*.img
+*.qcow2
+
+# Secrets — real credential files (passwords). Commit only *.example.json
+configs/arch/user_credentials.json
+secrets/
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
