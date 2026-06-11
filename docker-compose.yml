@@ -1,0 +1,13 @@
+# Rocky builder. lorax/mkksiso toolchain (RHEL-family).
+# Repo bind-mounted at /work; outputs land in ./output.
+#
+#   docker compose build
+#   docker compose run --rm rocky-builder ./scripts/build-rocky-usb.sh
+services:
+  rocky-builder:
+    build:
+      context: .
+      dockerfile: docker/rocky-builder.Dockerfile
+    volumes:
+      - .:/work
+    working_dir: /work
